@@ -1,0 +1,21 @@
+
+/*all list style*/
+.menu-top__list,
+.authorization,
+.cart__list,
+.navigation__list {
+    list-style: none;
+    padding: 0;
+}
+
+/*all link style*/
+
+.menu-top__list-link,
+.authorization__link,
+.contact__tel,
+.contact__city-link,
+.navigation__list-link {
+    text-decoration: none;
+    
+}
+

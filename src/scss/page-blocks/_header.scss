@@ -200,6 +200,73 @@
     }
 }
 
+/*бургер*/
+
+.menu-btn {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.menu-btn span {
+    width: 30px;
+    height: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222222;
+    transition: all 0.5s;
+}
+
+.menu-btn span:nth-of-type(2) {
+    top: calc(50% - 5px);
+}
+
+.menu-btn span:nth-of-type(3) {
+    top: calc(50% + 5px);
+}
+
+/* Меняем гамбургер иконку, когда меню открыто */
+.menu-btn.active span:nth-of-type(1) {
+    display: none;
+}
+
+.menu-btn.active span:nth-of-type(2) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(45deg);
+}
+
+.menu-btn.active span:nth-of-type(3) {
+    top: 50%;
+    transform: translate(-50%, 0%) rotate(-45deg);
+}
+
+/* Меню, которое будет появляться */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background: #FFEFBA;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+}
+
+.menu.active {
+    transform: translateX(0);
+}
+
+.menu li {
+    list-style-type: none;
+}
+
+/*конец бургер*/
+
 .navigation {
     margin-top: 30px;
     
@@ -216,11 +283,21 @@
         background-color: $color-yellow;
         color: #000;
         border-radius: 45px;
+        height: 100%;
+        padding: 20px;
+    }
+
+
+    &:first-child {
+         background-color: $color-yellow;
+         color: #000;
+         border-radius: 45px;
     }
 
         &:hover {
             background-color: $color-yellow;
-            
+            padding: 20px;
+            color: #000;
         }
 
         
@@ -229,7 +306,14 @@
     &-link {
         color: #fff;
         font-weight: 600;
+
+        &:hover {
+            color: black;
+        }
         
+        &:last-child {
+            
+        }
 
     }
 }
@@ -260,89 +344,23 @@
 
     /*бургер меню */
     
-        .navbar__wrap .menu {
-            display: none;
-        }
 
-        .hamb {
-            display: flex;
-            align-items: center;
-        }
+        
 
-        .hamb__field {
-            padding: 10px 20px;
-            cursor: pointer;
-        }
+        
+        
+       
 
-        .bar {
-            display: block;
-            width: 30px;
-            height: 3px;
-            margin: 6px auto;
-            background-color: #fff;
-            transition: 0.2s;
-        }
+        
 
-        .popup {
-            position: fixed;
-            top: 75px;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background-color: #fff;
-            z-index: 100;
-            display: flex;
-            transition: 0.3s;
-        }
+        
 
-        .popup.open {
-            left: 0;
-        }
+       
 
-        .popup .menu {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: start;
-            padding: 50px 0;
-            overflow: auto;
-        }
+       
+       
 
-        .popup .menu>li {
-            width: 100%;
-        }
-
-        .popup .menu>li>a {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-            font-size: 20px;
-            font-weight: bold;
-            color: #3f3f3f;
-        }
-
-        .popup .menu>li>a:hover {
-            background-color: rgba(122, 82, 179, 0.1);
-        }
-
-        .hamb__field.active .bar:nth-child(2) {
-            opacity: 0;
-        }
-
-        .hamb__field.active .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-
-        .hamb__field.active .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        body.noscroll {
-            overflow: hidden;
-        }
+       
     }
 /*бургер меню*/
 
